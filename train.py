@@ -35,6 +35,8 @@ import numpy as np
 import datasets
 import diffusers
 import transformers
+
+from transformers import AutoTokenizer, PretrainedConfig
 from accelerate import Accelerator
 from accelerate.logging import get_logger
 from accelerate.utils import set_seed
@@ -52,10 +54,10 @@ from huggingface_hub import HfFolder, Repository, create_repo, whoami
 from PIL import Image
 from torchvision import transforms
 from tqdm.auto import tqdm
-from transformers import AutoTokenizer, PretrainedConfig
+from diffusers.models.cross_attention import CrossAttention
 import ptp_utils
 from ptp_utils import AttentionStore
-from diffusers.models.cross_attention import CrossAttention
+
 
 check_min_version("0.12.0")
 
@@ -633,7 +635,7 @@ class SpatialDreambooth:
             gradient_accumulation_steps=self.args.gradient_accumulation_steps,
             mixed_precision=self.args.mixed_precision,
             log_with=self.args.report_to,
-            logging_dir=logging_dir,
+            project_dir=logging_dir,
         )
 
         if (

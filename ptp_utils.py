@@ -17,11 +17,13 @@ limitations under the License.
 import abc
 
 import cv2
+
 import numpy as np
 import torch
 
+from typing import Union, Tuple, List, Dict
 from PIL import Image
-from typing import Union, Tuple, List, Dict, Optional
+from typing import Optional
 import torch.nn.functional as nnf
 
 
