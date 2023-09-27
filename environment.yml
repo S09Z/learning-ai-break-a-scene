@@ -52,7 +52,6 @@ dependencies:
   - libev
   - libevent
   - libffi
-  - libgcc-ng
   - libnghttp2
   - libprotobuf
   - libssh2
